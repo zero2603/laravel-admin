@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Create Products</h1>
+		<h1 class="page-header">{{__('content.products.create_product_title')}}</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -16,52 +16,52 @@
 		<form action="{{ action('ProductController@store') }}" method="POST" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			<div class="form-group">
-				<label for="product_name">Item you want to promote<span class="require">*</span></label>
+				<label for="product_name">{{__('content.products.product_title')}}<span class="require">*</span></label>
 				<input type="text" class="form-control" name="product_name" />
-        <small>i.e: a ticket, a seafood meal... </small>
+        <small>{{__('content.products.product_subtitle')}}</small>
       </div>
 
       <div class="form-group">
-        <label for="description">What is included in this deal?</label>
+        <label for="description">{{__('content.products.description')}}</label>
         <textarea rows="5" class="form-control" name="description" ></textarea>
-        <small>Describe your deal (products/services included) </small>
+        <small>{{__('content.products.sub_description')}} </small>
       </div>
 
       <div class="form-group">
-        <label for="price">Regular Price<span class="require">*</span></label>
+        <label for="price">{{__('content.products.regular_price')}}<span class="require">*</span></label>
         <input type="text" class="form-control" name="price" />
       </div>
 
       <div class="form-group">
-        <label for="private_price">Reseller price (Discounted price) for EatPlayWatch<span class="require">*</span></label>
+        <label for="private_price">{{__('content.products.resell_price')}}<span class="require">*</span></label>
         <input type="text" class="form-control" name="private_price" />
       </div>
 
       <div class="form-group">
-        <label for="map">Address<span class="require">*</span></label>
+        <label for="map">{{__('content.products.address')}}<span class="require">*</span></label>
         <div id="map"></div>
       </div>
 
       <div class="form-group">
-        <label for="lat">Latitude</label>
+        <label for="lat">{{__('content.products.lat')}}</label>
         <input type="text" class="form-control" name="lat" id="lat" readonly="yes" />
-        <label for="lng">Longtitude</label>
+        <label for="lng">{{__('content.products.lng')}}</label>
         <input type="text" class="form-control" name="lng" id="lng" readonly="yes" />
-        <label for="address">Place Name</label>
+        <label for="address">{{__('content.products.place')}}</label>
         <input type="text" class="form-control" name="address" id="address" readonly="yes" />
       </div>
 
       <div class="custom-file">
-        <label class="custom-file-label" for="images">Choose item's gallery</label>
+        <label class="custom-file-label" for="images">{{__('content.products.add_image_title')}}</label>
         <input type="file" class="custom-file-input" id="customFile" name="images[]" multiple>
       </div><br>
 
       <div class="form-group">
         <button type="submit" class="btn btn-success">
-         Next
+         {{__('content.products.button_complete')}}
        </button>
        <button type="reset" class="btn btn-default">
-         Cancel
+         {{__('content.products.button_cancel')}}
        </button>
      </div>
 

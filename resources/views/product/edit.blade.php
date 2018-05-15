@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Edit Products</h1>
+		<h1 class="page-header">{{__('content.products.edit_product_title')}}</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -18,45 +18,45 @@
             <input name="_method" type="hidden" value="PATCH">
 
 			<div class="form-group">
-				<label for="product_name">Item Name<span class="require">*</span></label>
+				<label for="product_name">{{__('content.products.product_title')}}<span class="require">*</span></label>
 				<input type="text" class="form-control" name="product_name" value="{{$product_data['title']}}" />
 			</div>
 
 			<div class="form-group">
-				<label for="description">Description</label>
+				<label for="description">{{__('content.products.description')}}</label>
 				<textarea rows="5" class="form-control" name="description">{{$product_data['description']}}</textarea>
 			</div>
 
 			<div class="form-group">
-				<label for="price">Regular Price<span class="require">*</span></label>
+				<label for="price">{{__('content.products.regular_price')}}<span class="require">*</span></label>
 				<input type="text" class="form-control" name="price" value="{{$product_data['price']}}"/>
 			</div>
 
             <div class="form-group">
-                <label for="private_price">Reseller Price for EatPlayWatch<span class="require">*</span></label>
+                <label for="private_price">{{__('content.products.resell_price')}}<span class="require">*</span></label>
                 <input type="text" class="form-control" name="private_price" value="{{$product_data['private_price']}}"/>
             </div>
 
 			<div class="form-group">
-				<label for="map">Address<span class="require">*</span></label>
+				<label for="map">{{__('content.products.address')}}<span class="require">*</span></label>
 				<div id="map"></div>
 			</div>
 
 			<div class="form-group">
-				<label for="lat">Latitude</label>
+				<label for="lat">{{__('content.products.lat')}}</label>
 				<input type="text" class="form-control" name="lat" id="lat" readonly="yes" value="{{$product_data['lat_value']}}"/>
-				<label for="lng">Longtitude</label>
+				<label for="lng">{{__('content.products.lng')}}</label>
 				<input type="text" class="form-control" name="lng" id="lng" readonly="yes" value="{{$product_data['long_value']}}"/>
-				<label for="address">Place Name</label>
+				<label for="address">{{__('content.products.place')}}</label>
 				<input type="text" class="form-control" name="address" id="address" readonly="yes" value="{{$product_data['address']}}"/>
 			</div>
 
 			<div class="form-group">
 				<button type="submit" class="btn btn-success">
-					Next
+					{{__('content.products.button_next')}}
 				</button>
 				<button type="reset" class="btn btn-default">
-					Cancel
+					{{__('content.products.button_cancel')}}
 				</button>
 			</div>
 

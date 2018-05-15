@@ -6,12 +6,12 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Charts</h1>
+		<h1 class="page-header">{{__('content.chart.title')}}</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
 <div>
-	<div>Please choose time to view chart</div><br>
+	<div>{{__('content.chart.subtitle')}}</div><br>
 	<form action="{{action('ChartController@index')}}" method="post">
 		{{ csrf_field() }}
 		<div class="form-group row">
@@ -39,7 +39,7 @@
 				</select>
 			</div>
 			<div class="col-md-4">
-				<button type="submit" class="btn btn-primary">View Chart</button>
+				<button type="submit" class="btn btn-primary">{{__('content.chart.button')}}</button>
 			</div>
 		</div>
 	</div>
@@ -72,7 +72,10 @@
 				},
 				vAxis: {
 					title: 'Orders',
-					// majorType: 'continous'
+					viewWindow: {
+						min: 1,
+						max: 31
+					},
 				},
 				backgroundColor: '#fff'
 			};

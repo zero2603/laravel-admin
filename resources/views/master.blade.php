@@ -143,38 +143,38 @@
                     <ul class="nav" id="side-menu">
                         
                         <li>
-                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> {{ __('content.sidebar.dashboard')}}</a>
                         </li>
                         <li>
-                            <a href="{{url('/')}}/chart"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
+                            <a href="{{url('/')}}/chart"><i class="fa fa-bar-chart-o fa-fw"></i> {{ __('content.sidebar.charts') }}</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-cutlery fa-fw"></i> Orders<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-cutlery fa-fw"></i> {{ __('content.sidebar.orders') }}<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/')}}/order?status=completed"><i class="fa fa-check-circle-o fa-fw"></i> Complete Orders</a>
+                                    <a href="{{url('/')}}/order?status=completed"><i class="fa fa-check-circle-o fa-fw"></i> {{ __('content.sidebar.complete_orders') }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/')}}/order?status=processing"><i class="fa fa-spinner fa-fw"></i> Processing Orders</a>
+                                    <a href="{{url('/')}}/order?status=processing"><i class="fa fa-spinner fa-fw"></i> {{ __('content.sidebar.processing_orders') }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/')}}/order?status=failed"><i class="fa fa-times fa-fw"></i> Failed Orders</a>
+                                    <a href="{{url('/')}}/order?status=failed"><i class="fa fa-times fa-fw"></i> {{ __('content.sidebar.failed_orders') }}</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="{{url('/')}}/product"><i class="fa fa-shopping-cart fa-fw"></i> Products<span class="fa arrow"></span></a>
+                            <a href="{{url('/')}}/product"><i class="fa fa-shopping-cart fa-fw"></i> {{ __('content.sidebar.products') }}<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/')}}/product"><i class="fa fa-shopping-cart fa-fw"></i> All Products</a>
+                                    <a href="{{url('/')}}/product"><i class="fa fa-shopping-cart fa-fw"></i> {{ __('content.sidebar.all_products') }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/')}}/product/create"><i class="fa fa-edit fa-fw"></i> Create new products</a>
+                                    <a href="{{url('/')}}/product/create"><i class="fa fa-edit fa-fw"></i> {{ __('content.sidebar.create_products') }}</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-usd fa-fw"></i> Withdraw<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-usd fa-fw"></i> {{ __('content.sidebar.withdraw') }}<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="transaction-history"><i class="fa fa-credit-card fa-fw"></i> Transaction Detail</a>
@@ -182,7 +182,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-support fa-fw"></i> Support</a>
+                            <a href="#"><i class="fa fa-support fa-fw"></i> {{ __('content.sidebar.support') }}</a>
                         </li>
 
                     </ul>

@@ -6,22 +6,21 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">All Products</h1>
+		<h1 class="page-header">{{__('content.products.title')}}</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
 <div class="row">
 	<div class="col-lg-12">
-		{{session('message')}}
 		<table width="100%" class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Title</th>
-					<th scope="col">Price</th>
-					<th scope="col">Status</th>
-					<th scope="col">Date</th>
-					<th scope="col" colspan="2">Option</th>
+					<th scope="col">{{__('content.products.ID')}}</th>
+					<th scope="col">{{__('content.products.product_name')}}</th>
+					<th scope="col">{{__('content.products.price')}}</th>
+					<th scope="col">{{__('content.products.status')}}</th>
+					<th scope="col">{{__('content.products.date')}}</th>
+					<th scope="col" colspan="2">{{__('content.products.option')}}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,13 +32,13 @@
 					<td class="center">{{ $product->status }}</td>
 					<td class="center">{{ $product->post_date }}</td>
 					<td>
-						<a href="{{action('ProductController@edit',$product->ID)}}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
+						<a href="{{action('ProductController@edit',$product->ID)}}"><button type="button" class="btn btn-primary btn-sm">{{__('content.products.edit')}}</button></a>
 					</td>
 					<td>
 						<form action="{{action('ProductController@destroy', $product->ID)}}" method="POST">
 							@csrf
 							<input name="_method" type="hidden" value="DELETE">
-							<button class="btn btn-danger btn-sm" type="submit">Delete</button>
+							<button class="btn btn-danger btn-sm" type="submit">{{__('content.products.delete')}}</button>
 						</form>
 					</td>
 				</tr>
