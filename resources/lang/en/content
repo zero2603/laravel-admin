@@ -1,0 +1,81 @@
+<?php
+
+return [
+	'sidebar' => [
+		'dashboard' => 'Dashboard',
+		'charts' =>  'Charts',
+		'orders' => 'Orders',
+		'complete_orders' => 'Complete Orders',
+		'processing_orders' => 'Processing Orders',
+		'failed_orders' => 'Failed Orders',
+		'products' => 'Products',
+		'all_products' => 'All Products',
+		'create_products' => 'Create new products',
+		'withdraw' => 'Withdraw',
+		'support' => 'Support' 
+	],
+	'chart' => [
+		'title' => 'Chart',
+		'subtitle' => 'Please choose time to view chart',
+		'button' => 'View Chart'
+	],
+	'order' => [
+		'title' => 'All Orders of Your Products',
+		'ID' => 'ID',
+		'status' => 'Status',
+		'order_by' => 'Order by',
+		'date' => 'Date',
+		'total' => 'Total',
+		'option' => 'Option'
+		'detail_title' => 'Detail of Order :id',
+		'general' => 'General Details',
+		'billing' => 'Billing Details',
+		'name' => 'Customer Name',
+		'address' => 'Address',
+		'city' => 'City',
+		'state' => 'State',
+		'country' => 'Country',
+		'email' => 'Email',
+		'phone' => 'Phone',
+		'payment' => 'Payment Details',
+		'method' => 'Payment method', 
+		'list_items' => 'List items',
+		'message' => 'This order has :count deal(s)',
+		'product' => 'Product',
+		'cost' => 'Cost',
+		'total_label' => 'Total (price ✕ quantity)' 
+	],
+	'products' => [
+		'title' => 'All Products',
+		'ID' => 'ID',
+		'product_name' => 'Name',
+		'price' => 'Price',
+		'status' => 'Status',
+		'date' => 'Date',
+		'option' => 'Option',
+		'edit' => 'Edit',
+		'delete' => 'Delete',
+		'product_title' => 'Item you want to promote',
+		'product_subtitle' => 'i.e: a ticket, a seafood meal... ',
+		'descrition' => 'What is included in this deal?',
+		'sub_description' => 'Describe your deal (products/services included)',
+		'regular_price' => 'Regular Price',
+		'resell_price' => 'Reseller price (Discounted price) for EatPlayWatch',
+		'address' => 'Address',
+		'lat' => 'Latitude',
+		'lng' => 'Longtitude',
+		'place' => 'Place Name',
+		'button_next' => 'Next',
+		'button_cancel' => 'Cancel',
+		'image_title' => 'Product Gallery',
+		'button_upload_more' => 'Upload more item images',
+		'button_return' => 'Return products page',
+		'or' => 'or',
+		'current images' => 'Current images in gallery',
+		'message' => 'Hover and click (x) button to delete image',
+		'add_image_title' => 'Add Image Product',
+		'add_image_subtitle' => "Choose one or more images to update item's gallery",
+		'create_product_title' => 'Create product'
+	]
+
+];
