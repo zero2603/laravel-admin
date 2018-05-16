@@ -19,14 +19,17 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('restaurent_name');
+            $table->string('website');
             $table->string('address');
+            $table->string('country');
             $table->string('phone');
+            $table->string('tax');
             $table->string('type');
             $table->string('currency');
             $table->string('enable');
             $table->string('note');
             $table->rememberToken();
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

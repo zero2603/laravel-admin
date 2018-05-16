@@ -36,12 +36,6 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <!-- jQuery -->
     <script src="{{ asset('/public/master/vendor/jquery/jquery.min.js') }}"></script>
 
@@ -96,6 +90,16 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Language <i class="fa fa-caret-down"></i>
+                    </a>
+                     <ul class="dropdown-menu dropdown-messages" style="width: 150px">
+                        <li><a href="{{url('/').'/en'}}"><img src="{{ asset('/public/master/img/english.png') }}"><span> English</span></a></li>
+                        <li><a href="{{url('/').'/vi'}}"><img src="{{ asset('/public/master/img/vietnam.png') }}"><span> Vietnamese</span></a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
                     @auth
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
@@ -121,19 +125,6 @@
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Language <i class="fa fa-caret-down"></i>
-                    </a>
-                     <ul class="dropdown-menu dropdown-user">
-                        <form id='language-form' action="">
-                            <select>
-                                <option value="en">English</option>
-                                <option value="vi">Vietnamese</option>
-                            </select>
-                        </form>
-                    </ul>
-                </li>
             </ul>
             <!-- /.navbar-top-links -->
 
@@ -143,7 +134,7 @@
                     <ul class="nav" id="side-menu">
                         
                         <li>
-                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> {{ __('content.sidebar.dashboard')}}</a>
+                            <a href="{{url('/')}}"><i class="fa fa-dashboard fa-fw"></i> {{ __('content.sidebar.dashboard')}}</a>
                         </li>
                         <li>
                             <a href="{{url('/')}}/chart"><i class="fa fa-bar-chart-o fa-fw"></i> {{ __('content.sidebar.charts') }}</a>
@@ -198,3 +189,4 @@
     </div>
 </body>
 </html>
+

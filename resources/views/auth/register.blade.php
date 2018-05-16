@@ -76,6 +76,14 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="website" class="col-md-4 col-form-label text-md-right">{{ __('Partner Website URL') }}</label>
+
+                            <div class="col-md-6">
+                              <input id="website" type="text" class="form-control" name="website">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
@@ -90,14 +98,42 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="countries_phone1" class="form-control bfh-countries" data-country="US" name="country"></select>
+
+                                @if ($errors->has('country'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('country') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" required autofocus>
+                               <input type="text" class="form-control bfh-phone" data-country="countries_phone1" name="phone" maxlength="15">
 
                                 @if ($errors->has('phone'))
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('phone') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="tax" class="col-md-4 col-form-label text-md-right">{{ __('Tax Number ID') }}</label>
+
+                            <div class="col-md-6">
+                              <input id="tax" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="tax" value="{{ old('address') }}" required autofocus>
+
+                                @if ($errors->has('tax'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('tax') }}</strong>
                                 </span>
                                 @endif
                             </div>
@@ -126,6 +162,8 @@
                             </div>
                         </div>
 
+                        
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -139,4 +177,8 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection
+

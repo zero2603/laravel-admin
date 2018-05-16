@@ -15,6 +15,15 @@ class ChartController extends Controller
 		$order_id = [];
 		$deal_item = [];
 
+		// get current month and year
+		$month = date('m');
+		$year = date('Y');
+
+		if($request->has('month') && $request->has('year')) {
+			$month = $request->input('month');
+			$year = $request->input('year');
+		}
+ 
 		foreach ($products as $product) {
 			$deals = DB::connection('wordpress')->select("select `order_item_id` from `wp_woocommerce_order_itemmeta` where `meta_key` = 'deal' and `meta_value` like ?", ['%'.$product->ID.'%']);
 			foreach($deals as $deal) {
@@ -29,7 +38,7 @@ class ChartController extends Controller
 		}
 
 		$orders = [];
-		$orders = Post::select(DB::raw('day(post_date_gmt) as day'), DB::raw('count(date(post_date_gmt)) as count'))->whereIn('ID', [1252, 1253, 1254, 1255])->where([['post_status', '=', 'wc-completed'], [DB::raw('month(post_date_gmt)'), '=', $request->input('month')], [DB::raw('year(post_date_gmt)'), '=', $request->input('year')]])->groupBy('day')->get();
+		$orders = Post::select(DB::raw('day(post_date_gmt) as day'), DB::raw('count(date(post_date_gmt)) as count'))->whereIn('ID', $order_id)->where([['post_status', '=', 'wc-completed'], [DB::raw('month(post_date_gmt)'), '=', $month], [DB::raw('year(post_date_gmt)'), '=', $year]])->groupBy('day')->get();
 
 		return view('chart', ['orders' => $orders]);
     }
