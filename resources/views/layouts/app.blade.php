@@ -22,6 +22,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/home.css') }}" rel="stylesheet">
     <!-- Internation Phone Input -->
     <link rel="stylesheet" type="text/css" href="{{ asset('public/master/BootstrapFormHelpers-master/dist/css/bootstrap-formhelpers.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/master/BootstrapFormHelpers-master/dist/css/bootstrap-formhelpers.min.css') }}">
@@ -34,7 +35,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ asset('/public/master/img/eatplaywatch.png') }}" height="40px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -74,7 +75,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav>    
 
     <main class="py-4">
         @yield('content')

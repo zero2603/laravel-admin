@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class ChartController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+	
     public function index(Request $request) {
     	$partner_id = 1;
 		$products = Post::type('product')->hasMeta('_partner_id', $partner_id)->orderBy('ID')->get();

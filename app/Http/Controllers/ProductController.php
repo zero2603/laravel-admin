@@ -18,7 +18,7 @@ class ProductController extends Controller
     
     public function index() {
     	$partner_id = Auth::id();
-    	$products = Post::type('product')->hasMeta('_partner_id', $partner_id)->orderBy('ID', 'desc')->paginate(10);
+    	$products = Post::type('product')->hasMeta('_partner_id', $partner_id)->whereIn('post_status', ['publish', 'pending'])->orderBy('ID', 'desc')->paginate(10);
     	return view('product.index', array('products' => $products));
     }
 

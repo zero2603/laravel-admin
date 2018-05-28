@@ -10,7 +10,7 @@ body {
   width: 100%;
 }
 #page-wrapper {
-  padding: 0 15px;
+  padding: 0 20px 15px 15px;
   min-height: 568px;
   background-color: white;
 }
@@ -18,7 +18,7 @@ body {
   #page-wrapper {
     position: inherit;
     margin: 0 0 0 250px;
-    padding: 0 30px;
+    padding: 0 30px 30px 30px;
     border-left: 1px solid #e7e7e7;
   }
 }
@@ -104,7 +104,7 @@ body {
     z-index: 1;
     position: absolute;
     width: 250px;
-    margin-top: 51px;
+    margin-top: 66px;
   }
   .navbar-top-links .dropdown-messages,
   .navbar-top-links .dropdown-tasks,
@@ -112,6 +112,11 @@ body {
     margin-left: auto;
   }
 }
+
+#logo {
+  height: 2em;
+}
+
 .btn-outline {
   color: inherit;
   background-color: transparent;
@@ -431,4 +436,15 @@ table.dataTable thead .sorting:after {
     border-right-width: 14px;
     border-left-width: 0;
   }
+}
+
+.mainfooter {
+  background-color: #2f3640;
+  color: #fff;
+  padding-top: 20px;
+}
+
+.footer-pad ul li a {
+  color: #fff;
+  text-decoration: none;
 }

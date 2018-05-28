@@ -62,5 +62,7 @@ class Kernel extends HttpKernel
         'localize' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
         'localizationRedirect' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
         'localeSessionRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
+        'checkUserRole' => \App\Http\Middleware\CheckUserRole::class,
+        'adminRole' => \App\Http\Middleware\AdminRoleMiddleware::class,
     ];
 }

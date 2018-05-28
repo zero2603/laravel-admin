@@ -1,0 +1,31 @@
+<?php
+return [
+	'user' => [
+		'title_1' => 'All Active Partners',
+		'title_2' => 'Information about Partner #:id',
+		'tbl_header_1' => 'ID',
+		'tbl_header_2' => 'Name',
+		'tbl_header_3' => 'Email',
+		'tbl_header_4' => 'Restaurent Name',
+		'tbl_header_5' => 'Country',
+		'tbl_header_6' => 'Phone',
+		'tbl_header_7' => 'Active',
+		'tbl_header_8' => 'Option',
+		'btn_1' => 'View Info',
+		'btn_2' => 'Active',
+		'btn_3' => 'Deactive',
+		'btn_4' => 'Delete',
+		'show_title_1' => 'Profile',
+		'show_title_2' => 'Restaurent Information',
+		'name' => 'Partner Name',
+		'email' => 'Email',
+		'address' => 'Address',
+		'country' => 'Country',
+		'phone' => 'Phone Number',
+		'tax' => 'Tax ID',
+		'restaurent_name' => 'Restaurent Name',
+		'website' => 'Partner Website',
+		'type' => 'Type',
+		'currency' => 'Currency'
+	],
+];

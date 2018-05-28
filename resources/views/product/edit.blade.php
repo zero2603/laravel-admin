@@ -19,7 +19,7 @@
 
 			<div class="form-group">
 				<label for="product_name">{{__('content.products.product_title')}}<span class="require">*</span></label>
-				<input type="text" class="form-control" name="product_name" value="{{$product_data['title']}}" />
+				<input type="text" class="form-control" name="product_name" value="{{$product_data['title']}}"  required/>
 			</div>
 
 			<div class="form-group">
@@ -29,26 +29,30 @@
 
 			<div class="form-group">
 				<label for="price">{{__('content.products.regular_price')}}<span class="require">*</span></label>
-				<input type="text" class="form-control" name="price" value="{{$product_data['price']}}"/>
+				<input type="number" class="form-control" name="price" value="{{$product_data['price']}}" required/>
 			</div>
 
             <div class="form-group">
                 <label for="private_price">{{__('content.products.resell_price')}}<span class="require">*</span></label>
-                <input type="text" class="form-control" name="private_price" value="{{$product_data['private_price']}}"/>
+                <input type="number" class="form-control" name="private_price" value="{{$product_data['private_price']}}" onchange="check()"  required/>
             </div>
 
 			<div class="form-group">
-				<label for="map">{{__('content.products.address')}}<span class="require">*</span></label>
-				<div id="map"></div>
-			</div>
+                <label for="map">{{__('content.products.address')}}<span class="require">*</span></label>
+                <div>
+                    <div>
+                        <input class="form-control" id="address" type="text" name="address" value="{{$product_data['address']}}" required>
+                    </div>
+                </div><br>
+                <div id="map"></div>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3X4Z-4xD7iuYynSKwjR1Jk3AlKyYPbvI&callback=initMap"></script>
+            </div>
 
 			<div class="form-group">
 				<label for="lat">{{__('content.products.lat')}}</label>
 				<input type="text" class="form-control" name="lat" id="lat" readonly="yes" value="{{$product_data['lat_value']}}"/>
 				<label for="lng">{{__('content.products.lng')}}</label>
 				<input type="text" class="form-control" name="lng" id="lng" readonly="yes" value="{{$product_data['long_value']}}"/>
-				<label for="address">{{__('content.products.place')}}</label>
-				<input type="text" class="form-control" name="address" id="address" readonly="yes" value="{{$product_data['address']}}"/>
 			</div>
 
 			<div class="form-group">
@@ -72,76 +76,47 @@
 <style type="text/css">
     #map{ width:700px; height: 500px; }
 </style>
-<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVZhmwQOlfhc-NoaHBFRaUEfOTWSjbwWk&callback=initMap"></script>
 <script type="text/javascript">
-	//Set up some of our variables.
-var map; //Will contain map object.
-var marker = false; ////Has the user plotted their location marker? 
-
-//Function called to initialize / create the map.
-//This is called when the page has loaded.
-function initMap() {
-
-    //The center location of our map.
-    var centerOfMap = new google.maps.LatLng(21.0228161, 105.801944);
+    function initMap() {
+    var latlng = new google.maps.LatLng(21.028511, 105.804817);
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: latlng 
+    });
     var geocoder = new google.maps.Geocoder();
 
-    //Map options.
-    var options = {
-      center: centerOfMap, //Set center.
-      zoom: 10 //The zoom value.
-  };
-
-    //Create the map object.
-    map = new google.maps.Map(document.getElementById('map'), options);
-
-    //Listen for any clicks on the map.
-    google.maps.event.addListener(map, 'click', function(event) {       
-      	geocoder.geocode({
-    		'latLng': event.latLng
-  		}, function(results, status) {
-    		if (status == google.maps.GeocoderStatus.OK) {
-      			if (results[0]) {
-        			document.getElementById('address').value = results[0].formatted_address;
-      			}
-    		}
-  		});
-        //Get the location that the user clicked.
-        var clickedLocation = event.latLng;
-        //If the marker hasn't been added.
-        if(marker === false){
-            //Create the marker.
-            marker = new google.maps.Marker({
-            	position: clickedLocation,
-            	map: map,
-                draggable: true //make it draggable
-            });
-            //Listen for drag events!
-            google.maps.event.addListener(marker, 'dragend', function(event){
-            	markerLocation();
-            });
-        } else{
-            //Marker has already been added, so just change its location.
-            marker.setPosition(clickedLocation);
-        }
-        //Get the marker's location.
-        markerLocation();
+    document.getElementById('address').addEventListener('change', function() {
+      geocodeAddress(geocoder, map);
     });
-}
+  }
 
-//This function will get the marker's current location and then add the lat/long
-//values to our textfields so that we can save the location.
-function markerLocation(){
-    //Get location.
-    var currentLocation = marker.getPosition();
-    //Add lat and lng values to a field that we can save.
-    document.getElementById('lat').value = currentLocation.lat(); //latitude
-    document.getElementById('lng').value = currentLocation.lng(); //longitude
-    
-}
+  function geocodeAddress(geocoder, resultsMap) {
+    var address = document.getElementById('address').value;
+    geocoder.geocode({'address': address}, function(results, status) {
+      if (status === 'OK') {
+        resultsMap.setCenter(results[0].geometry.location);
 
+        var marker = new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location
+        });
 
-//Load the map when the page has finished loading.
-google.maps.event.addDomListener(window, 'load', initMap);
+        document.getElementById('lat').value = marker.getPosition().lat();
+        document.getElementById('lng').value = marker.getPosition().lng();
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+
+</script>
+
+<script type="text/javascript">
+  function check() {
+    var price = document.getElementById('price');
+    var private_price = document.getElementById('private_price');
+    if(private_price.value >= price.value) 
+      alert("Reseller price must be smaller than regular price!");
+    private_price.value = null;
+  }
 </script>

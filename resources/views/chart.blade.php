@@ -42,7 +42,7 @@
 				<button type="submit" class="btn btn-primary">{{__('content.chart.button')}}</button>
 			</div>
 		</div>
-	</div>
+	</form>
 	<div class="row">
 		<div id="chart_div" style="height: 500px; width: 960px"></div>
 	</div>

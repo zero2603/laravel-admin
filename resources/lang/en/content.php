@@ -73,7 +73,7 @@ return [
 		'button_upload_more' => 'Upload more item images',
 		'button_return' => 'Return products page',
 		'or' => 'or',
-		'current images' => 'Current images in gallery',
+		'current_images' => 'Current images in gallery',
 		'message' => 'Hover and click (x) button to delete image',
 		'edit_product_title' => 'Edit Product',
 		'add_image_title' => 'Add Image Product',

@@ -26,10 +26,11 @@ class CreateUsersTable extends Migration
             $table->string('tax');
             $table->string('type');
             $table->string('currency');
-            $table->string('enable');
+            $table->integer('enable');
+            $table->integer('role')->default(0);
             $table->string('note');
             $table->rememberToken();
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 

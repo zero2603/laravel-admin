@@ -10,15 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ]], function() {
+Route::get('/', function () {
+	return view('welcome');
+});
 
-	Route::get('/', function () {
-		return view('welcome');
-	});
+Auth::routes();
 
-	Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
-	Route::get('/home', 'HomeController@index')->name('home');
+// route for partner page
+Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'checkUserRole']], function() {
+
+	Route::get('/dashboard', 'DashboardController@index');
+
+	Route::post('/dashboard', 'DashboardController@index');
 
 	Route::get('/product', 'ProductController@index');
 
@@ -40,4 +45,38 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 
 	Route::post('/chart', 'ChartController@index');
 
+	Route::get('/profile/{id}', 'UserController@getProfile');
+
+	Route::patch('/profile/{id}', 'UserController@updateProfile');
+
+	Route::get('/check-order', 'OrderController@checkOrder');
+
+	Route::post('/check-order', 'OrderController@checkOrder');
+
+	Route::resource('/withdraw', 'PartnerWithdrawController');
+
+	Route::get('/balance-detail', 'PartnerWithdrawController@balanceDetail');
+
+	Route::post('/balance-detail', 'PartnerWithdrawController@makeWithdraw');
+
+});
+
+// route for admin page
+Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'adminRole']], function() { 
+	
+	Route::get('/admin/dashboard', 'DashboardController@adminDashboardAllTime');
+
+	Route::get('/admin/dashboard/month', 'DashboardController@adminDashboardInMonth');
+
+	Route::post('/admin/dashboard/month', 'DashboardController@adminDashboardInMonth');
+
+	Route::resource('/admin/users', 'UserController');
+
+	Route::get('/admin/orders', 'OrderController@adminIndex');
+
+	Route::get('admin/orders/{id}', 'OrderController@showInAdmin');
+
+	Route::resource('/admin/transactions', 'PartnerTransactionController');
+
+	Route::resource('/admin/annoucements', 'AnnoucementController');
 });

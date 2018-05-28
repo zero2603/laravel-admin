@@ -75,6 +75,14 @@
 	</div>
 
 	<div class="col-md-12">
+		<h4>Check Status</h4>
+		<ul>
+			<li>Checked Partners: {{$orderStatus->checked_partners}}</li>
+			<li>Checked Products: {{$orderStatus->checked_products}}</li>
+		</ul>
+	</div>
+
+	<div class="col-md-12">
 		<h4>{{__('content.order.list_items')}}</h4>
 		<div><strong>{{__('content.order.message', ['count' => count($items)])}}</strong></div>
 		@foreach($items as $key => $item)
@@ -85,7 +93,8 @@
 					<tr>
 						<th scope='col' width="20%">Product ID</th>
 						<th scope='col' width="50%">{{__('content.order.product')}}</th>
-						<th scope='col' width="30%">{{__('content.order.cost')}}</th>
+						<th scope="col" width="10%">Partner ID</th>
+						<th scope='col' width="20%">{{__('content.order.cost')}}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -93,19 +102,16 @@
 					<tr>
 						<td>{{$product['id']}}</td>
 						<td>{{$product['name']}}</td>
+						<td>{{$product['partner_id']}}</td>
 						<td>{{$product['price']}}</td>
 					</tr>
 					@endforeach
 					<tr>
-						<th scope="row" colspan="2">{{__('content.order.total_label')}}</th>
+						<th scope="row" colspan="3">{{__('content.order.total_label')}}</th>
 						<td>{{$item['total'].' ✕ '.$item['quantity'].' = '. ($item['total']*$item['quantity'])}}</td>
 					</tr>
 				</tbody>
 			</table>
-			@else
-			<div class="alert alert-danger">
-				There are not any your products in this deal.
-			</div>
 			@endif
 		@endforeach
 	</div>

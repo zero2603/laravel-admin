@@ -90,6 +90,7 @@ class RegisterController extends Controller
             'type' => $data['type'],
             'currency' => $data['currency'],
             'enable' => 0,
+            'role' => 0,
             'note' => ''
         ]);
     }
