@@ -133,6 +133,19 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             @if(Auth::user()->role == 0)
+                            <li class="sidebar-search">
+                                <form class="form-inline" action="{{action('SearchController@search')}}" method="POST">
+                                    @csrf
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="keyword" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="submit">
+                                                Search
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </li>
                             <li>
                                 <a href="{{url('/')}}/dashboard"><i class="fa fa-dashboard fa-fw"></i> {{ __('content.sidebar.dashboard')}}</a>
                             </li>

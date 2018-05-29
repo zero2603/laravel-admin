@@ -59,6 +59,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 
 	Route::post('/balance-detail', 'PartnerWithdrawController@makeWithdraw');
 
+	Route::post('/result', 'SearchController@search');
+
 });
 
 // route for admin page
