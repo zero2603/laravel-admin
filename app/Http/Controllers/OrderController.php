@@ -127,7 +127,11 @@ class OrderController extends Controller
 					// get curent order
 					$current_order = Woocommerce::get('orders/'.$current_order_id);
 					
-					if($current_order['status'] == 'processing') {
+					if($current_order['status'] == 'completed') {
+						$message = "This order had been already recorded for you.";
+						$flag = 1;
+					}
+					else if($current_order['status'] == 'processing') {
 						// find record if exist
 						$records = DB::table('partner_records')->where('partner_id', $partner_id)->where('order_id', $current_order_id)->get();
 
@@ -273,6 +277,7 @@ class OrderController extends Controller
 				}
 			}
 		}
+
 		return view('admin.order.show', ['order' => $order, 'items' => $items, 'orderStatus' => $orderStatus]);
 	}
 }

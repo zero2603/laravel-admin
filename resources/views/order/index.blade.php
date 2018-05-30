@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">{{__('content.order.title')}}</h1>
+		<h1 class="page-header">{{__('content.order.index.page_header')}}</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -16,12 +16,12 @@
 		<table width="100%" class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">{{__('content.order.ID')}}</th>
-					<th scope="col">{{__('content.order.status')}}</th>
-					<th scope="col">{{__('content.order.order_by')}}</th>
-					<th scope="col">{{__('content.order.date')}}</th>
-					<th scope="col">{{__('content.order.total')}}</th>
-					<th scope="col">{{__('content.order.option')}}</th>
+					<th scope="col">{{__('content.order.index.column_name_1')}}</th>
+					<th scope="col">{{__('content.order.index.column_name_2')}}</th>
+					<th scope="col">{{__('content.order.index.column_name_3')}}</th>
+					<th scope="col">{{__('content.order.index.column_name_4')}}</th>
+					<th scope="col">{{__('content.order.index.column_name_5')}}</th>
+					<th scope="col">{{__('content.order.index.column_name_6')}}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -34,7 +34,7 @@
 					<td class="center">{{ $order->_order_total }}</td>
 					<td>
 						<a href="{{action('OrderController@show', $order->ID)}}">
-							<button class="btn btn-primary btn-sm">{{__('content.order.button_view')}}</button>
+							<button class="btn btn-primary btn-sm">{{__('content.order.button_1')}}</button>
 						</a>
 					</td>
 				</tr>

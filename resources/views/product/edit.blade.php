@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">{{__('content.products.edit_product_title')}}</h1>
+		<h1 class="page-header">{{__('content.products.edit.page_header')}}</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -18,27 +18,27 @@
             <input name="_method" type="hidden" value="PATCH">
 
 			<div class="form-group">
-				<label for="product_name">{{__('content.products.product_title')}}<span class="require">*</span></label>
+				<label for="product_name">{{__('content.products.edit.label_1')}}<span class="require">*</span></label>
 				<input type="text" class="form-control" name="product_name" value="{{$product_data['title']}}"  required/>
 			</div>
 
 			<div class="form-group">
-				<label for="description">{{__('content.products.description')}}</label>
+				<label for="description">{{__('content.products.edit.label_2')}}</label>
 				<textarea rows="5" class="form-control" name="description">{{$product_data['description']}}</textarea>
 			</div>
 
 			<div class="form-group">
-				<label for="price">{{__('content.products.regular_price')}}<span class="require">*</span></label>
+				<label for="price">{{__('content.products.edit.label_3')}}<span class="require">*</span></label>
 				<input type="number" class="form-control" name="price" value="{{$product_data['price']}}" required/>
 			</div>
 
             <div class="form-group">
-                <label for="private_price">{{__('content.products.resell_price')}}<span class="require">*</span></label>
+                <label for="private_price">{{__('content.products.edit.label_4')}}<span class="require">*</span></label>
                 <input type="number" class="form-control" name="private_price" value="{{$product_data['private_price']}}" onchange="check()"  required/>
             </div>
 
 			<div class="form-group">
-                <label for="map">{{__('content.products.address')}}<span class="require">*</span></label>
+                <label for="map">{{__('content.products.edit.label_5')}}<span class="require">*</span></label>
                 <div>
                     <div>
                         <input class="form-control" id="address" type="text" name="address" value="{{$product_data['address']}}" required>
@@ -49,18 +49,18 @@
             </div>
 
 			<div class="form-group">
-				<label for="lat">{{__('content.products.lat')}}</label>
+				<label for="lat">{{__('content.products.edit.label_6')}}</label>
 				<input type="text" class="form-control" name="lat" id="lat" readonly="yes" value="{{$product_data['lat_value']}}"/>
-				<label for="lng">{{__('content.products.lng')}}</label>
+				<label for="lng">{{__('content.products.edit.label_7')}}</label>
 				<input type="text" class="form-control" name="lng" id="lng" readonly="yes" value="{{$product_data['long_value']}}"/>
 			</div>
 
 			<div class="form-group">
 				<button type="submit" class="btn btn-success">
-					{{__('content.products.button_next')}}
+					{{__('content.products.button.button_3')}}
 				</button>
 				<button type="reset" class="btn btn-default">
-					{{__('content.products.button_cancel')}}
+					{{__('content.products.button.button_4')}}
 				</button>
 			</div>
 

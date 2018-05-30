@@ -8,7 +8,7 @@
                 <div class="card-header">Alert</div>
 
                 <div class="card-body">
-                    We are reviewing your account. When your account is actived, you can login your dashboard. 
+                    {{__('content.home.message')}}
                 </div>
             </div>
         </div>

@@ -6,22 +6,22 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">{{__('content.products.image_title')}}</h1>
+		<h1 class="page-header">{{__('content.product_gallery.page_header')}}</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
 <div>
 	<a href="{{url('/product/images/create')}}">
-		<button class="btn btn-primary">{{__('content.products.button_upload_more')}}</button>
+		<button class="btn btn-primary">{{__('content.product_gallery.button_1')}}</button>
 	</a>
-	<span>&nbsp;{{__('content.products.or')}}&nbsp;</span>
+	<span>&nbsp;{{__('content.product_gallery.text_1')}}&nbsp;</span>
 	<a href="{{url('/product')}}">
-		<button class="btn btn-success">{{__('content.products.button_return')}}</button>
+		<button class="btn btn-success">{{__('content.product_gallery.button_2')}}</button>
 	</a>
 </div>
 <hr>
-<h4>{{__('content.products.current_images')}}</h4>
-<div><p>{{__('content.products.message')}}</p></div>
+<h4>{{__('content.product_gallery.header_1')}}</h4>
+<div><p>{{__('content.product_gallery.text_2')}}</p></div>
 <div class="row text-center text-lg-left">
 	@foreach($product_images as $image) 
 

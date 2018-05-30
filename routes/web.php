@@ -17,6 +17,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+ 
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
 // route for partner page
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'checkUserRole']], function() {
@@ -41,9 +43,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 
 	Route::resource('order', 'OrderController');
 
-	Route::get('/chart', 'ChartController@index');
+	Route::get('/chart', 'ChartController@getData');
 
-	Route::post('/chart', 'ChartController@index');
+	Route::post('/chart', 'ChartController@getData');
 
 	Route::get('/profile/{id}', 'UserController@getProfile');
 
@@ -81,4 +83,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 	Route::resource('/admin/transactions', 'PartnerTransactionController');
 
 	Route::resource('/admin/annoucements', 'AnnoucementController');
+
+	Route::post('/admin/result', 'SearchController@adminSearch');
 });

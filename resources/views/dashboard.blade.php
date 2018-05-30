@@ -6,14 +6,14 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Dashboard</h1>
+		<h1 class="page-header">{{__('content.dashboard.page_header')}}</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
 <div class="row">
 
 	<div class="col-lg-12">
-		<h3>All the time</h3>
+		<h3>{{__('content.dashboard.header_1')}}</h3>
 		<hr>
 	</div>
 	
@@ -112,12 +112,12 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h3>View by month</h3>
+		<h3>{{__('content.dashboard.header_2')}}</h3>
 		<hr>
 	</div>
 	<div class="col-lg-12">
 		<div class="col-md-3">
-			<strong>Choose month and year:</strong>
+			<strong>{{__('content.dashboard.label')}}</strong>
 		</div>
 		<form action="{{action('DashboardController@index')}}" method="post">
 			{{ csrf_field() }}
@@ -146,14 +146,14 @@
 					</select>
 				</div>
 				<div class="col-md-3">
-					<button type="submit" class="btn btn-primary">{{__('View')}}</button>
+					<button type="submit" class="btn btn-primary">{{__('content.dashboard.button')}}</button>
 				</div>
 			</div>
 		</form>
 	</div>
 
 	<div class="col-lg-12">
-		<h4>Statistics in {{$monthValue}}/{{$yearValue}}</h4>
+		<h4>{{__('content.dashboard.header_3', ['month' => $monthValue, 'year' => $yearValue])}}</h4>
 	</div>
 
 	<div class="col-lg-12">
@@ -209,7 +209,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h3>Annoucements</h3>
+		<h3>{{__('content.dashboard.header_4')}}</h3>
 		<hr>
 		<ul class="list-group">
 			@if (App::getLocale() == 'en')

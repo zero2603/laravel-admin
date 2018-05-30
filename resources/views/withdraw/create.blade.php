@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Withdraw</h1>
+		<h1 class="page-header">{{__('content.withdraw.information.page_header')}}</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -16,31 +16,31 @@
 		<form method="POST" action="{{action('PartnerWithdrawController@store')}}">
 			{{ csrf_field() }}
 			<div class="form-group">
-				<label>Withdraw Method:</label>
+				<label>{{__('content.withdraw.information.label_1')}}</label>
 				<input type="text"  class="form-control" value="Bank Transfer" name='method' readonly>
 			</div>
 			<div class="form-group">
-				<label>Account Holder Name:</label>
+				<label>{{__('content.withdraw.information.label_2')}}</label>
 				<input type="text"  class="form-control" name='account_name'>
 			</div>
 			<div class="form-group">
-				<label>Account Number:</label>
+				<label>A{{__('content.withdraw.information.label_3')}}</label>
 				<input type="text"  class="form-control" name='account_number'>
 			</div>
 			<div class="form-group">
-				<label>Bank Name and bank branch:</label>
+				<label>{{__('content.withdraw.information.label_4')}}</label>
 				<input type="text"  class="form-control" name='bank'>
 			</div>
 			<div class="form-group">
-				<label>Contact phone number:</label>
+				<label>{{__('content.withdraw.information.label_5')}}</label>
 				<input type="text"  class="form-control" name='phone'>
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-success">
-					{{__('content.products.button_next')}}
+					{{__('content.withdraw.information.button_1')}}
 				</button>
 				<button type="reset" class="btn btn-default">
-					{{__('content.products.button_cancel')}}
+					{{__('content.withdraw.information.button_2')}}
 				</button>
 			</div>
 		</form>

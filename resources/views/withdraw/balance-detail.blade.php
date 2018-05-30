@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Withdraw</h1>
+		<h1 class="page-header">{{__('content.withdraw.balance_detail.page_header')}}</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -62,30 +62,27 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		When your account reaches the minimum amount (100$) or more, you may request your withdraw by clicking the 'Withdraw' button. If not, an alert will appear. The withdraw request may be takes 5 days for processing.
-		You can fill or update your withdraw information <a href="{{url('/')}}/withdraw/create">here</a>.
+		{{__('content.withdraw.balance_detail.content')}} <a href="{{url('/')}}/withdraw/create">{{__('content.withdraw.balance_detail.link')}}</a>.
 		<br><br>
 		@if($available >= 100 &&  count($info) != 0)
 		<div class="text-center">
 			<form method="POST" action="{{action('PartnerWithdrawController@makeWithdraw')}}">
 				@csrf
 				<input type="hidden" name="total" value="{{$available}}">
-				<button type="submit" class="btn btn-success btn-lg">Withdraw</button>
+				<button type="submit" class="btn btn-success btn-lg">{{__('content.withdraw.balance_detail.button')}}</button>
 			</form>
 		</div>
 		@else
 		<div class="alert alert-danger">
-			Condition for make a withdraw is your available balance must be greater than 100$ or you have not filled out the information yet.
+			{{__('content.withdraw.balance_detail.message')}}
 		</div>
 		@endif
-	</div>
-	
-	
+	</div>	
 </div>
 
 <div class="row">
 	<div class="col-lg-12">
-		<h3 class="page-header">Transaction History</h3>
+		<h3 class="page-header">{{__('content.withdraw.balance_detail.header')}}</h3>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -94,11 +91,11 @@
 		<table width="100%" class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Balance Change</th>
-					<th scope="col">Status</th>
-					<th scope="col">Content</th>
-					<th scope="col">Date</th>
+					<th scope="col">{{__('content.withdraw.balance_detail.column_name_1')}}</th>
+					<th scope="col">{{__('content.withdraw.balance_detail.column_name_2')}}</th>
+					<th scope="col">{{__('content.withdraw.balance_detail.column_name_3')}}</th>
+					<th scope="col">{{__('content.withdraw.balance_detail.column_name_4')}}</th>
+					<th scope="col">{{__('content.withdraw.balance_detail.column_name_5')}}</th>
 				</tr>
 			</thead>
 			<tbody>

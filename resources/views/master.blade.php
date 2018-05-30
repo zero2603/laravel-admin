@@ -147,79 +147,92 @@
                                 </form>
                             </li>
                             <li>
-                                <a href="{{url('/')}}/dashboard"><i class="fa fa-dashboard fa-fw"></i> {{ __('content.sidebar.dashboard')}}</a>
+                                <a href="{{url('/')}}/dashboard"><i class="fa fa-dashboard fa-fw"></i> {{ __('sidebar.partner.dashboard')}}</a>
                             </li>
                             <li>
-                                <a href="{{url('/')}}/chart"><i class="fa fa-bar-chart-o fa-fw"></i> {{ __('content.sidebar.charts') }}</a>
+                                <a href="{{url('/')}}/chart"><i class="fa fa-bar-chart-o fa-fw"></i> {{ __('sidebar.partner.chart') }}</a>
                             </li>
                             <li>
-                                <a href="{{url('/')}}/product"><i class="fa fa-shopping-cart fa-fw"></i> {{ __('content.sidebar.products') }}<span class="fa arrow"></span></a>
+                                <a href="{{url('/')}}/product"><i class="fa fa-shopping-cart fa-fw"></i> {{ __('sidebar.partner.product.index') }}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="{{url('/')}}/product"><i class="fa fa-shopping-cart fa-fw"></i> {{ __('content.sidebar.all_products') }}</a>
+                                        <a href="{{url('/')}}/product"><i class="fa fa-shopping-cart fa-fw"></i> {{ __('sidebar.partner.product.all') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{url('/')}}/product/create"><i class="fa fa-edit fa-fw"></i> {{ __('content.sidebar.create_products') }}</a>
+                                        <a href="{{url('/')}}/product/create"><i class="fa fa-edit fa-fw"></i> {{ __('sidebar.partner.product.create') }}</a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-cutlery fa-fw"></i> {{ __('content.sidebar.orders') }}<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-cutlery fa-fw"></i> {{ __('sidebar.partner.order.index') }}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="{{url('/')}}/order?status=completed"><i class="fa fa-check-circle-o fa-fw"></i> {{ __('content.sidebar.complete_orders') }}</a>
+                                        <a href="{{url('/')}}/order?status=completed"><i class="fa fa-check-circle-o fa-fw"></i> {{ __('sidebar.partner.order.completed') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{url('/')}}/order?status=processing"><i class="fa fa-spinner fa-fw"></i> {{ __('content.sidebar.processing_orders') }}</a>
+                                        <a href="{{url('/')}}/order?status=processing"><i class="fa fa-spinner fa-fw"></i> {{ __('sidebar.partner.order.processing') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{url('/')}}/order?status=failed"><i class="fa fa-times fa-fw"></i> {{ __('content.sidebar.failed_orders') }}</a>
+                                        <a href="{{url('/')}}/order?status=failed"><i class="fa fa-times fa-fw"></i> {{ __('sidebar.partner.order.failed') }}</a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-usd fa-fw"></i> {{ __('content.sidebar.withdraw') }}<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-usd fa-fw"></i> {{ __('sidebar.partner.withdraw.index') }}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="{{url('/')}}/withdraw/create"><i class="fa fa-credit-card fa-fw"></i> Withdraw Information</a>
+                                        <a href="{{url('/')}}/withdraw/create"><i class="fa fa-credit-card fa-fw"></i> {{ __('sidebar.partner.withdraw.information') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{url('/')}}/balance-detail"><i class="fa fa-money fa-fw"></i> Balance Detail</a>
+                                        <a href="{{url('/')}}/balance-detail"><i class="fa fa-money fa-fw"></i> {{ __('sidebar.partner.withdraw.detail') }}</a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-support fa-fw"></i> {{ __('content.sidebar.support') }}</a>
+                                <a href="#"><i class="fa fa-support fa-fw"></i> {{ __('sidebar.partner.support') }}</a>
                             </li>
                             @elseif(Auth::user()->role == 1) 
+                            <li class="sidebar-search">
+                                <form class="form-inline" action="{{action('SearchController@adminSearch')}}" method="POST">
+                                    @csrf
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="keyword" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="submit">
+                                                Search
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </li>
                             <li>
-                                <a href="{{url('/')}}/admin/dashboard"><i class="fa fa-line-chart fa-fw"></i> {{ __('Dashboard')}}<span class="fa arrow"></span></a>
+                                <a href="{{url('/')}}/admin/dashboard"><i class="fa fa-line-chart fa-fw"></i> {{ __('sidebar.admin.dashboard.index')}}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="{{url('/')}}/admin/dashboard/month"><i class="fa fa-calendar fa-fw"></i> View by month</a>
+                                        <a href="{{url('/')}}/admin/dashboard/month"><i class="fa fa-calendar fa-fw"></i> {{ __('sidebar.admin.dashboard.month')}}</a>
                                     </li>
                                     <li>
-                                        <a href="{{url('/')}}/admin/dashboard/"><i class="fa fa-history fa-fw"></i> All time</a>
+                                        <a href="{{url('/')}}/admin/dashboard/"><i class="fa fa-history fa-fw"></i> {{ __('sidebar.admin.dashboard.all')}}</a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{url('/')}}/admin/users"><i class="fa fa-users fa-fw"></i> {{ __('Users Management')}}</a>
+                                <a href="{{url('/')}}/admin/users"><i class="fa fa-users fa-fw"></i> {{ __('sidebar.admin.users')}}</a>
                             </li>
                             <li>
-                                <a href="{{url('/')}}/admin/transactions"><i class="fa fa-book fa-fw"></i> {{ __('Transactions Management')}}</a>
+                                <a href="{{url('/')}}/admin/transactions"><i class="fa fa-book fa-fw"></i> {{ __('sidebar.admin.transactions')}}</a>
                             </li>
                             <li>
-                                <a href="{{url('/')}}/admin/orders"><i class="fa fa-inbox fa-fw"></i> {{ __('Orders Management')}}</a>
+                                <a href="{{url('/')}}/admin/orders"><i class="fa fa-inbox fa-fw"></i> {{ __('sidebar.admin.orders')}}</a>
                             </li>
                             <li>
-                                <a href="{{url('/')}}/admin/annoucements"><i class="fa fa-bullhorn fa-fw"></i> {{ __('Annoucements Management')}}<span class="fa arrow"></span>s</a>
+                                <a href="{{url('/')}}/admin/annoucements"><i class="fa fa-bullhorn fa-fw"></i> {{ __('sidebar.admin.annoucements.index')}}<span class="fa arrow"></span>s</a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="{{url('/')}}/admin/annoucements"><i class="fa fa-bullhorn fa-fw"></i> All Annoucements</a>
+                                        <a href="{{url('/')}}/admin/annoucements"><i class="fa fa-bullhorn fa-fw"></i> {{ __('sidebar.admin.annoucements.all')}}</a>
                                     </li>
                                     <li>
-                                        <a href="{{url('/')}}/admin/annoucements/create"><i class="fa fa-edit fa-fw"></i> Create an annoucement</a>
+                                        <a href="{{url('/')}}/admin/annoucements/create"><i class="fa fa-edit fa-fw"></i>{{ __('sidebar.admin.annoucements.create')}}</a>
                                     </li>
                                 </ul>
                             </li>

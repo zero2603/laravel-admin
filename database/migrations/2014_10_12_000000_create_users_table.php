@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('tax');
             $table->string('type');
             $table->string('currency');
+            $table->boolean('verified')->default(false);
             $table->integer('enable');
             $table->integer('role')->default(0);
             $table->string('note');
